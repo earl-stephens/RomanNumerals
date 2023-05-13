@@ -12,4 +12,8 @@ public class Solution {
 		}
 		return output;
 	}
+	
+	public String[] inputToArray(String input) {
+		return input.split("");
+	}
 }

@@ -37,4 +37,16 @@ class SolutionTest {
 	  assertEquals("That is not a valid input value.", thrown.getMessage());
 	}
 
+	@Test
+	void testTwoOfTheSameCharacters() {
+		assertEquals(2, solution.romanToInt("II"));
+		assertEquals(10, solution.romanToInt("VV"));
+		assertEquals(200, solution.romanToInt("CC"));
+	}
+	
+	@Test
+	void testInputToArray() {
+		assertEquals(3, solution.inputToArray("CIV").length);
+		assertEquals("C", solution.inputToArray("CIV")[0]);
+	}
 }
