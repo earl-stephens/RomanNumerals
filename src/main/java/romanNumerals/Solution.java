@@ -12,29 +12,7 @@ public class Solution {
 
 		String[] remainingLetters = inputValues.split("");
 		for(String letter : remainingLetters) {
-			switch(letter) {
-			case "I":
-				output += 1;
-				break;
-			case "V":
-				output += 5;
-				break;
-			case "X":
-				output += 10;
-				break;
-			case "L":
-				output += 50;
-				break;
-			case "C":
-				output += 100;
-				break;
-			case "D":
-				output += 500;
-				break;
-			case "M":
-				output += 1000;
-				break;
-			}
+			output += Numeral.valueOf(letter).getIntValue();
 		}
 		return output;
 	}
