@@ -17,15 +17,38 @@ class SolutionTest {
 	}
 	
 	@Test
-	void testCanConvertASingleValue() {
+	void testCanConvertI() {
 		assertEquals(1, solution.romanToInt("I"));
+	}
+	
+	@Test
+	void testCanConvertV() {
 		assertEquals(5, solution.romanToInt("V"));
+	}
+	
+	@Test
+	void testCanConvertX() {
 		assertEquals(10, solution.romanToInt("X"));
+	}
+	
+	@Test
+	void testCanConvertL() {
 		assertEquals(50, solution.romanToInt("L"));
+	}
+	
+	@Test
+	void testCanConvertC() {
 		assertEquals(100, solution.romanToInt("C"));
+	}
+	
+	@Test
+	void testCanConvertD() {
 		assertEquals(500, solution.romanToInt("D"));
+	}
+	
+	@Test
+	void testCanConvertM() {
 		assertEquals(1000, solution.romanToInt("M"));
-		assertNotEquals(1, solution.romanToInt("V"));
 	}
 	
 	@Test
@@ -42,12 +65,6 @@ class SolutionTest {
 		assertEquals(2, solution.romanToInt("II"));
 		assertEquals(10, solution.romanToInt("VV"));
 		assertEquals(200, solution.romanToInt("CC"));
-	}
-	
-	@Test
-	void testInputToArray() {
-		assertEquals(3, solution.inputToArray("CIV").length);
-		assertEquals("C", solution.inputToArray("CIV")[0]);
 	}
 	
 	@Test

@@ -9,41 +9,48 @@ public class Solution {
 	String inputValues = null;
 	
 	public int romanToInt(String input) {
-		inputValues = input.toUpperCase();
+		String[] letterArray = input.split("");
+		validateArray(letterArray);
+		setInputValues(input.toUpperCase());
 		checkInputForPairs(inputValues);
-		String[] rawArray = inputToArray(inputValues);
-		List<String> inputArray = validateArray(rawArray);
-		
-		Iterator<String> iterator = inputArray.iterator();
-		while(iterator.hasNext()) {
-			for(int i = 0; i < inputArray.size(); i++) {
-				if(inputArray.get(i) == "I" && inputArray.get(i + 1) == "V") {
-					output = output + 4;
-				} else
-				output = output + Numeral.valueOf(iterator.next()).getIntValue();
+
+		String[] remainingLetters = inputValues.split("");
+		for(String letter : remainingLetters) {
+			switch(letter) {
+			case "I":
+				output += 1;
+				break;
+			case "V":
+				output += 5;
+				break;
+			case "X":
+				output += 10;
+				break;
+			case "L":
+				output += 50;
+				break;
+			case "C":
+				output += 100;
+				break;
+			case "D":
+				output += 500;
+				break;
+			case "M":
+				output += 1000;
+				break;
 			}
 		}
-		
 		return output;
 	}
-	
-	public String[] inputToArray(String input) {
-		return input.split("");
-	}
-	
-	public List<String> validateArray(String[] rawArray) {
-		for(String letter : rawArray) {
+
+	public void validateArray(String[] letterArray) {
+		for(String letter : letterArray) {
 			try {
 				Numeral.valueOf(letter.toUpperCase()).getIntValue();
 			} catch(IllegalArgumentException e) {
 				throw new IllegalArgumentException("That is not a valid input value.", e);
 			}
 		}
-		List<String> listOfLetters = new ArrayList<>();
-		for(String letter : rawArray) {
-			listOfLetters.add(letter.toUpperCase());
-		}
-		return listOfLetters;
 	}
 	
 	public void checkInputForPairs(String input) {
