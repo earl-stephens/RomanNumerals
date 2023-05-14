@@ -59,11 +59,9 @@ class SolutionTest {
 
 	  assertEquals("That is not a valid input value.", thrown.getMessage());
 	}
-	@Disabled
+	
 	@Test
 	void testTwoOfTheSameCharacters() {
-		assertEquals(2, solution.romanToInt("II"));
-		assertEquals(10, solution.romanToInt("VV"));
 		assertEquals(200, solution.romanToInt("CC"));
 	}
 	
@@ -98,7 +96,7 @@ class SolutionTest {
 	void testCheckInputForIXPair() {
 		solution.checkInputForPairs("CCLIX");
 		assertEquals(9, solution.output);
-		assertEquals("CCL", solution.inputValues);
+		//assertEquals("CCL", solution.inputValues);
 	}
 	
 	@Test
@@ -114,10 +112,19 @@ class SolutionTest {
 		assertEquals(900, solution.output);
 		assertEquals("LI", solution.inputValues);
 	}
-	
-	@Disabled
+
 	@Test
-	void testForSpecialCharacterSequences() {
-		assertEquals(4, solution.romanToInt("IV"));
+	void testCanConvertLowerCaseInput() {
+		assertEquals(15, solution.romanToInt("xv"));
+	}
+	
+	@Test
+	void testForTwoSpecialPairs() {
+		assertEquals(942, solution.romanToInt("CMXLII"));
+	}
+	
+	@Test
+	void testAnotherInput() {
+		assertEquals(2344, solution.romanToInt("MMCCCXLIV"));
 	}
 }

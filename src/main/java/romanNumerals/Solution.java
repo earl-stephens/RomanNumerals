@@ -1,9 +1,5 @@
 package romanNumerals;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public class Solution {
 	int output = 0;
 	String inputValues = null;
@@ -54,29 +50,31 @@ public class Solution {
 	}
 	
 	public void checkInputForPairs(String input) {
-		if(input.contains("XC")) {
-			output += 90;
-			setInputValues(input.replace("XC", ""));
-		}
-		if(input.contains("XL")) {
-			output += 40;
-			setInputValues(input.replace("XL", ""));
-		}
-		if(input.contains("IV")) {
-			output += 4;
-			setInputValues(input.replace("IV", ""));
-		}
-		if(input.contains("IX")) {
-			output += 9;
-			setInputValues(input.replace("IX", ""));
-		}
-		if(input.contains("CD")) {
-			output += 400;
-			setInputValues(input.replace("CD", ""));
-		}
 		if(input.contains("CM")) {
 			output += 900;
 			setInputValues(input.replace("CM", ""));
+		} else {
+			setInputValues(input);
+		}
+		if(inputValues.contains("CD")) {
+			output += 400;
+			setInputValues(inputValues.replace("CD", ""));
+		}
+		if(inputValues.contains("XC")) {
+			output += 90;
+			setInputValues(inputValues.replace("XC", ""));
+		}
+		if(inputValues.contains("XL")) {
+			output += 40;
+			setInputValues(inputValues.replace("XL", ""));
+		}
+		if(inputValues.contains("IX")) {
+			output += 9;
+			setInputValues(inputValues.replace("IX", ""));
+		}
+		if(inputValues.contains("IV")) {
+			output += 4;
+			setInputValues(inputValues.replace("IV", ""));
 		}
 	}
 
